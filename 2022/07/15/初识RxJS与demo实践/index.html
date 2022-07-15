@@ -16,25 +16,25 @@
   <meta name="author" content="Hairong Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。">
+    <meta name="description" content="RxJS是用于处理异步和事件程序的JS库，可以将RxJS看作事件的lodash。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6-解构赋值之对象">
-<meta property="og:url" content="http://example.com/2022/07/12/ES6-%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E4%B9%8B%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:title" content="初识RxJS与demo实践">
+<meta property="og:url" content="http://example.com/2022/07/15/%E5%88%9D%E8%AF%86RxJS%E4%B8%8Edemo%E5%AE%9E%E8%B7%B5/index.html">
 <meta property="og:site_name" content="小激动的Blog">
-<meta property="og:description" content="ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。">
+<meta property="og:description" content="RxJS是用于处理异步和事件程序的JS库，可以将RxJS看作事件的lodash。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/_posts/ES6-let%E5%92%8Cconst%EF%BC%88%E4%B8%8A%EF%BC%89/titleImg.jpg">
-<meta property="article:published_time" content="2022-07-12T01:30:26.000Z">
-<meta property="article:modified_time" content="2022-07-12T01:52:44.163Z">
+<meta property="article:published_time" content="2022-07-15T07:19:57.000Z">
+<meta property="article:modified_time" content="2022-07-15T08:40:40.373Z">
 <meta property="article:author" content="Hairong Wu">
 <meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="RxJS">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/_posts/ES6-let%E5%92%8Cconst%EF%BC%88%E4%B8%8A%EF%BC%89/titleImg.jpg">
   
   
   
-  <title>ES6-解构赋值之对象 - 小激动的Blog</title>
+  <title>初识RxJS与demo实践 - 小激动的Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -216,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ES6-解构赋值之对象"></span>
+            <span id="subtitle" data-typed-text="初识RxJS与demo实践"></span>
           
         </div>
 
@@ -227,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-12 09:30" pubdate>
-          2022年7月12日 上午
+        <time datetime="2022-07-15 15:19" pubdate>
+          2022年7月15日 下午
         </time>
       </span>
     
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          429 字
+          1.8k 字
         
       </span>
     
@@ -250,7 +250,7 @@
         
         
         
-          4 分钟
+          16 分钟
         
       </span>
     
@@ -296,21 +296,42 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">ES6-解构赋值之对象</h1>
+            <h1 style="display: none">初识RxJS与demo实践</h1>
             
             
               <div class="markdown-body">
                 
-                <img src="/2022/07/12/ES6-%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E4%B9%8B%E5%AF%B9%E8%B1%A1/titleImg.jpg" srcset="/img/loading.gif" lazyload class="" title="新兰永恒 image">
+                <img src="/2022/07/15/%E5%88%9D%E8%AF%86RxJS%E4%B8%8Edemo%E5%AE%9E%E8%B7%B5/titleImg.jpg" srcset="/img/loading.gif" lazyload class="" title="新兰永恒 image">
 
-<h2 id="一、基本用法"><a href="#一、基本用法" class="headerlink" title="一、基本用法"></a>一、基本用法</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">let &#123; foo, bar &#125; = &#123; foo: <span class="hljs-string">&#x27;aaa&#x27;</span>, bar: <span class="hljs-string">&#x27;bbb&#x27;</span> &#125;;<br>foo <span class="hljs-regexp">//</span> <span class="hljs-string">&quot;aaa&quot;</span><br>bar <span class="hljs-regexp">//</span> <span class="hljs-string">&quot;bbb&quot;</span><br></code></pre></td></tr></table></figure>
+<h3 id="一、核心概念"><a href="#一、核心概念" class="headerlink" title="一、核心概念"></a>一、核心概念</h3><blockquote>
+<p>RxJS 中 Stream 的概念：将不断产生的数据或事件组成序列称作 Stream。</p>
+</blockquote>
+<p>1.Observable：被观察的对象，代表未来可能产生的数据或事件的集合。</p>
+<p>2.Observer：观察者，通常是回调函数，用来接收观察结果。其中包括三个属性（next，complete、error）。</p>
+<p>3.Subscription：订阅对象，用于建立 Observer 与 Observable 的联系（也可以取消订阅）。</p>
+<p>4.operators：运算符，对 Observable 产生的数据或事件进行处理的纯函数。常见的运算符有 map、filter、delay 等。</p>
+<p>5.Subject：主体，如同 EventEmitter，用于将 Observable 广播给多个 Observer。在这种情况下，Subject 即是 Observer 又是 Observable。</p>
+<img src="/2022/07/15/%E5%88%9D%E8%AF%86RxJS%E4%B8%8Edemo%E5%AE%9E%E8%B7%B5/subject%E5%B9%BF%E6%92%AD%E5%9B%BE.jpg" srcset="/img/loading.gif" lazyload class="" title="Subject广播关系图 image">
 
-<p><strong><em>（1）对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</em></strong></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">let &#123; baz &#125; = &#123; foo: <span class="hljs-string">&#x27;aaa&#x27;</span>, bar: <span class="hljs-string">&#x27;bbb&#x27;</span> &#125;;<br>baz <span class="hljs-regexp">//</span> undefined<br></code></pre></td></tr></table></figure>
+<h3 id="二、第一个示例"><a href="#二、第一个示例" class="headerlink" title="二、第一个示例"></a>二、第一个示例</h3><p>通常，原生 js 采用如下方式注册事件监听。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">document.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> console.log(<span class="hljs-string">&#x27;Clicked!&#x27;</span>));<br></code></pre></td></tr></table></figure>
 
-<p>（2）对象的解构赋值，可以很方便地将现有对象的方法，赋值到某个变量。</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-comment">// 例一</span><br>let &#123; <span class="hljs-built_in">log</span>, <span class="hljs-built_in">sin</span>, <span class="hljs-built_in">cos</span> &#125; = Math;<br><br><span class="hljs-comment">// 例二</span><br>const &#123; <span class="hljs-built_in">log</span> &#125; = <span class="hljs-built_in">console</span>;<br><span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;hello&#x27;</span>) <span class="hljs-comment">// hello</span><br>~~~<br></code></pre></td></tr></table></figure>
+<p>使用 RxJS 可以创建 Observable。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-keyword">import</span> &#123; fromEvent &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;<br><br>fromEvent(document, <span class="hljs-string">&#x27;click&#x27;</span>).subscribe(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> console.log(<span class="hljs-string">&#x27;Clicked!&#x27;</span>));<br></code></pre></td></tr></table></figure>
 
+<h3 id="三、Demo"><a href="#三、Demo" class="headerlink" title="三、Demo"></a>三、Demo</h3><h5 id="1-安装-RxJS"><a href="#1-安装-RxJS" class="headerlink" title="1.安装 RxJS"></a>1.安装 RxJS</h5><p>因为只是跑简单示例，所以并没有用构建工具初始化项目。创建 HTML 文件，采用 CDN 引入的方式使用 RxJS。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">const &#123; &#125; <span class="hljs-operator">=</span> rxjs<span class="hljs-comment">; // 使用ES6解构赋值按需引入</span><br>const &#123; &#125; <span class="hljs-operator">=</span> rxjs.operators<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果构建项目，则需要使用 <strong>npm install rxjs</strong>来安装 RxJS。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-keyword">import</span> &#123; &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>; <span class="hljs-comment">// 采用import语法引入</span><br><span class="hljs-keyword">import</span> &#123; &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h5 id="2-例子一：监听点击事件并输出前三次的数据。"><a href="#2-例子一：监听点击事件并输出前三次的数据。" class="headerlink" title="2.例子一：监听点击事件并输出前三次的数据。"></a>2.例子一：监听点击事件并输出前三次的数据。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; fromEvent &#125; = rxjs;<br><span class="hljs-keyword">const</span> &#123; take &#125;  = rxjs.<span class="hljs-property">operators</span>;<br><br><span class="hljs-keyword">let</span> btnDom = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.btn&quot;</span>);<br><span class="hljs-title function_">fromEvent</span>(btnDom, <span class="hljs-string">&#x27;click&#x27;</span>).<span class="hljs-title function_">pipe</span>(<br>    <span class="hljs-title function_">take</span>(<span class="hljs-number">3</span>)<br>).<span class="hljs-title function_">subscribe</span>(<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span><br>)<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    其中fromEvent(btnDom, &#x27;click&#x27;) 为 Observable；</span><br><span class="hljs-comment">    take(3) 为 Operators；</span><br><span class="hljs-comment">    console.log 为 Observer</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="3-例子二：点击按钮延时三秒输出结果。"><a href="#3-例子二：点击按钮延时三秒输出结果。" class="headerlink" title="3.例子二：点击按钮延时三秒输出结果。"></a>3.例子二：点击按钮延时三秒输出结果。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; fromEvent &#125; = rxjs;<br><span class="hljs-keyword">const</span> &#123; take, delay &#125; = rxjs.<span class="hljs-property">operators</span>;<br><br><span class="hljs-keyword">let</span> btnDom = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.btn&quot;</span>);<br><span class="hljs-title function_">fromEvent</span>(btnDom, <span class="hljs-string">&#x27;click&#x27;</span>).<span class="hljs-title function_">pipe</span>(<br>    <span class="hljs-title function_">delay</span>(<span class="hljs-number">3000</span>),<br>    <span class="hljs-title function_">take</span>(<span class="hljs-number">3</span>)<br>).<span class="hljs-title function_">subscribe</span>(<br>    <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;点击按钮后延时三秒输出&quot;</span>);<br>    &#125;<br>)<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    其中fromEvent(btnDom, &#x27;click&#x27;) 为 Observable；</span><br><span class="hljs-comment">    delay(3000), take(3) 为 Operators；</span><br><span class="hljs-comment">    () =&gt; &#123;</span><br><span class="hljs-comment">        console.log(&quot;点击按钮后延时三秒输出&quot;);</span><br><span class="hljs-comment">    &#125; 为 Observer</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="部分内容来自RxJS-官方文档"><a href="#部分内容来自RxJS-官方文档" class="headerlink" title="部分内容来自RxJS 官方文档"></a>部分内容来自<a target="_blank" rel="noopener" href="https://rxjs.dev/">RxJS 官方文档</a></h4>
                 
               </div>
             
@@ -355,7 +376,7 @@
       
         <a href="/tags/JavaScript/">#JavaScript</a>
       
-        <a href="/tags/ES6/">#ES6</a>
+        <a href="/tags/RxJS/">#RxJS</a>
       
     </div>
   
@@ -367,8 +388,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ES6-解构赋值之对象</div>
-      <div>http://example.com/2022/07/12/ES6-解构赋值之对象/</div>
+      <div>初识RxJS与demo实践</div>
+      <div>http://example.com/2022/07/15/初识RxJS与demo实践/</div>
     </div>
     <div class="license-meta">
       
@@ -380,7 +401,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月12日</div>
+          <div>2022年7月15日</div>
         </div>
       
       
@@ -410,18 +431,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/15/%E5%88%9D%E8%AF%86RxJS%E4%B8%8Edemo%E5%AE%9E%E8%B7%B5/" title="初识RxJS与demo实践">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">初识RxJS与demo实践</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/12/ES6-%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E4%B9%8B%E6%95%B0%E7%BB%84/" title="ES6-解构赋值之数组">
-                        <span class="hidden-mobile">ES6-解构赋值之数组</span>
+                      <a href="/2022/07/12/ES6-%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E4%B9%8B%E5%AF%B9%E8%B1%A1/" title="ES6-解构赋值之对象">
+                        <span class="hidden-mobile">ES6-解构赋值之对象</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
