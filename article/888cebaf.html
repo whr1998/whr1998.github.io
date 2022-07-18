@@ -16,27 +16,27 @@
   <meta name="author" content="小激动">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RxJS是用于处理异步和事件程序的JS库，可以将RxJS看作事件的lodash。">
+    <meta name="description" content="ES6加强对Unicode编码的支持，为字符串提供Iterator接口，以及优化了JSON.stringify()。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识RxJS与demo实践">
-<meta property="og:url" content="http://example.com/article/222d0cce.html">
+<meta property="og:title" content="ES6-字符串的扩展（上）">
+<meta property="og:url" content="http://example.com/article/888cebaf.html">
 <meta property="og:site_name" content="小激动的Blog">
-<meta property="og:description" content="RxJS是用于处理异步和事件程序的JS库，可以将RxJS看作事件的lodash。">
+<meta property="og:description" content="ES6加强对Unicode编码的支持，为字符串提供Iterator接口，以及优化了JSON.stringify()。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/1.jpg">
-<meta property="article:published_time" content="2022-07-15T07:19:57.000Z">
-<meta property="article:modified_time" content="2022-07-18T02:57:56.619Z">
+<meta property="og:image" content="http://example.com/img/7.jpg">
+<meta property="article:published_time" content="2022-07-18T02:53:22.000Z">
+<meta property="article:modified_time" content="2022-07-18T07:02:10.375Z">
 <meta property="article:author" content="小激动">
 <meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="RxJS">
+<meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/1.jpg">
+<meta name="twitter:image" content="http://example.com/img/7.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>初识RxJS与demo实践 - 小激动的Blog</title>
+  <title>ES6-字符串的扩展（上） - 小激动的Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -218,7 +218,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="初识RxJS与demo实践"></span>
+            <span id="subtitle" data-typed-text="ES6-字符串的扩展（上）"></span>
           
         </div>
 
@@ -234,8 +234,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-15 15:19" pubdate>
-          2022年7月15日 下午
+        <time datetime="2022-07-18 10:53" pubdate>
+          2022年7月18日 上午
         </time>
       </span>
     
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.6k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          16 分钟
+          14 分钟
         
       </span>
     
@@ -303,42 +303,37 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">初识RxJS与demo实践</h1>
+            <h1 style="display: none">ES6-字符串的扩展（上）</h1>
             
             
               <div class="markdown-body">
                 
-                <img src="/article/222d0cce/banner.jpg" srcset="/img/loading.gif" lazyload class="" title="新兰永恒 image">
+                <img src="/article/888cebaf/banner.jpg" srcset="/img/loading.gif" lazyload class="" title="image">
 
-<h2 id="一、核心概念"><a href="#一、核心概念" class="headerlink" title="一、核心概念"></a>一、核心概念</h2><blockquote>
-<p>RxJS 中 Stream 的概念：将不断产生的数据或事件组成序列称作 Stream。</p>
-</blockquote>
-<p>1.Observable：被观察的对象，代表未来可能产生的数据或事件的集合。</p>
-<p>2.Observer：观察者，通常是回调函数，用来接收观察结果。其中包括三个属性（next，complete、error）。</p>
-<p>3.Subscription：订阅对象，用于建立 Observer 与 Observable 的联系（也可以取消订阅）。</p>
-<p>4.operators：运算符，对 Observable 产生的数据或事件进行处理的纯函数。常见的运算符有 map、filter、delay 等。</p>
-<p>5.Subject：主体，如同 EventEmitter，用于将 Observable 广播给多个 Observer。在这种情况下，Subject 即是 Observer 又是 Observable。</p>
-<img src="/article/222d0cce/subject%E5%B9%BF%E6%92%AD%E5%9B%BE.jpg" srcset="/img/loading.gif" lazyload class="" title="Subject广播关系图 image">
+<h2 id="一、字符的-Unicode-表示法"><a href="#一、字符的-Unicode-表示法" class="headerlink" title="一、字符的 Unicode 表示法"></a>一、字符的 Unicode 表示法</h2><p>ES6 加强了对 Unicode 的支持，允许采用\uxxxx 形式表示一个字符，其中 xxxx 表示字符的 Unicode 码点。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-string">&quot;\u0061&quot;</span> <span class="hljs-regexp">//</span> <span class="hljs-string">&quot;a&quot;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="二、第一个示例"><a href="#二、第一个示例" class="headerlink" title="二、第一个示例"></a>二、第一个示例</h2><p>通常，原生 js 采用如下方式注册事件监听。</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript">document.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> console.log(<span class="hljs-string">&#x27;Clicked!&#x27;</span>));<br></code></pre></td></tr></table></figure>
+<p>但是，这种表示法只限于码点在\u0000~\uFFFF 之间的字符。超出这个范围的字符，必须用两个双字节的形式表示。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-string">&quot;\uD842\uDFB7&quot;</span><br><span class="hljs-regexp">//</span> <span class="hljs-string">&quot;𠮷&quot;</span><br><span class="hljs-string">&quot;\u20BB7&quot;</span><br><span class="hljs-regexp">//</span> <span class="hljs-string">&quot; 7&quot;</span> 该段被理解为\u20BB+<span class="hljs-number">7</span>，而\u20BB是不可打印字符，因此以空格显示，其后跟着一个 <span class="hljs-number">7</span>。<br></code></pre></td></tr></table></figure>
 
-<p>使用 RxJS 可以创建 Observable。</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-keyword">import</span> &#123; fromEvent &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;<br><br>fromEvent(document, <span class="hljs-string">&#x27;click&#x27;</span>).subscribe(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> console.log(<span class="hljs-string">&#x27;Clicked!&#x27;</span>));<br></code></pre></td></tr></table></figure>
+<p>改进后，只需将码点放入大括号中，即可正确解读。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-string">&quot;\u&#123;20BB7&#125;&quot;</span><br><span class="hljs-regexp">//</span> <span class="hljs-string">&quot;𠮷&quot;</span><br><br><span class="hljs-string">&quot;\u&#123;41&#125;\u&#123;42&#125;\u&#123;43&#125;&quot;</span><br><span class="hljs-regexp">//</span> <span class="hljs-string">&quot;ABC&quot;</span><br><br>let hello = <span class="hljs-number">123</span>;<br>hell\u&#123;<span class="hljs-number">6</span>F&#125; <span class="hljs-regexp">//</span> <span class="hljs-number">123</span><br><br><span class="hljs-string">&#x27;\u&#123;1F680&#125;&#x27;</span> === <span class="hljs-string">&#x27;\uD83D\uDE80&#x27;</span><br><span class="hljs-regexp">//</span> true<br></code></pre></td></tr></table></figure>
 
-<h2 id="三、Demo"><a href="#三、Demo" class="headerlink" title="三、Demo"></a>三、Demo</h2><h4 id="1-安装-RxJS"><a href="#1-安装-RxJS" class="headerlink" title="1.安装 RxJS"></a>1.安装 RxJS</h4><p>因为只是跑简单示例，所以并没有用构建工具初始化项目。创建 HTML 文件，采用 CDN 引入的方式使用 RxJS。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="二、字符串的遍历器接口"><a href="#二、字符串的遍历器接口" class="headerlink" title="二、字符串的遍历器接口"></a>二、字符串的遍历器接口</h2><p>ES6 为字符串添加了 Iterator 接口，使得字符串可以被 for…of 循环遍历。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">for</span> (let codePoint of <span class="hljs-string">&#x27;foo&#x27;</span>) &#123;<br>  console.log(codePoint)<br>&#125;<br><span class="hljs-regexp">//</span> <span class="hljs-string">&quot;f&quot;</span><br><span class="hljs-regexp">//</span> <span class="hljs-string">&quot;o&quot;</span><br><span class="hljs-regexp">//</span> <span class="hljs-string">&quot;o&quot;</span><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">const &#123; &#125; <span class="hljs-operator">=</span> rxjs<span class="hljs-comment">; // 使用ES6解构赋值按需引入</span><br>const &#123; &#125; <span class="hljs-operator">=</span> rxjs.operators<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<p>并且这个遍历器可以识别码点大于 0xFFFF 的码点，原本的 for 循环无法识别。</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs arcade">let <span class="hljs-built_in">text</span> = String.<span class="hljs-built_in">fromCodePoint</span>(<span class="hljs-number">0x20BB7</span>);<br><br><span class="hljs-keyword">for</span> (let i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">text</span>.<span class="hljs-built_in">length</span>; i++) &#123;<br>  <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">text</span>[i]);<br>&#125;<br><span class="hljs-comment">// &quot; &quot;</span><br><span class="hljs-comment">// &quot; &quot;</span><br><br><span class="hljs-keyword">for</span> (let i of <span class="hljs-built_in">text</span>) &#123;<br>  <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(i);<br>&#125;<br><span class="hljs-comment">// &quot;𠮷&quot;</span><br></code></pre></td></tr></table></figure>
 
-<p>如果构建项目，则需要使用 <strong>npm install rxjs</strong>来安装 RxJS。</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-keyword">import</span> &#123; &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>; <span class="hljs-comment">// 采用import语法引入</span><br><span class="hljs-keyword">import</span> &#123; &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<h2 id="三、JSON-stringify-的改造"><a href="#三、JSON-stringify-的改造" class="headerlink" title="三、JSON.stringify() 的改造"></a>三、JSON.stringify() 的改造</h2><p>根据标准，JSON 数据必须是 UTF-8 编码。但是，现在的 JSON.stringify()方法有可能返回不符合 UTF-8 标准的字符串。</p>
+<p>具体来说，UTF-8 标准规定，0xD800 到 0xDFFF 之间的码点，不能单独使用，必须配对使用。比如，\uD834\uDF06 是两个码点，但是必须放在一起配对使用，代表字符 𝌆。这是为了表示码点大于 0xFFFF 的字符的一种变通方法。单独使用\uD834 和\uDFO6 这两个码点是不合法的，或者颠倒顺序也不行，因为\uDF06\uD834 并没有对应的字符。</p>
+<p>JSON.stringify()的问题在于，它可能返回 0xD800 到 0xDFFF 之间的单个码点。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">JSON.stringify(<span class="hljs-string">&#x27;\u&#123;D834&#125;&#x27;</span>) <span class="hljs-regexp">//</span> <span class="hljs-string">&quot;\u&#123;D834&#125;&quot;</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="2-例子一：监听点击事件并输出前三次的数据。"><a href="#2-例子一：监听点击事件并输出前三次的数据。" class="headerlink" title="2.例子一：监听点击事件并输出前三次的数据。"></a>2.例子一：监听点击事件并输出前三次的数据。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; fromEvent &#125; = rxjs;<br><span class="hljs-keyword">const</span> &#123; take &#125;  = rxjs.<span class="hljs-property">operators</span>;<br><br><span class="hljs-keyword">let</span> btnDom = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.btn&quot;</span>);<br><span class="hljs-title function_">fromEvent</span>(btnDom, <span class="hljs-string">&#x27;click&#x27;</span>).<span class="hljs-title function_">pipe</span>(<br>    <span class="hljs-title function_">take</span>(<span class="hljs-number">3</span>)<br>).<span class="hljs-title function_">subscribe</span>(<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span><br>)<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    其中fromEvent(btnDom, &#x27;click&#x27;) 为 Observable；</span><br><span class="hljs-comment">    take(3) 为 Operators；</span><br><span class="hljs-comment">    console.log 为 Observer</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<p>为了确保返回的是合法的 UTF-8 字符，ES2019 改变了 JSON.stringify()的行为。如果遇到 0xD800 到 0xDFFF 之间的单个码点，或者不存在的配对形式，它会返回转义字符串，留给应用自己决定下一步的处理。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">JSON.stringify(<span class="hljs-string">&#x27;\u&#123;D834&#125;&#x27;</span>) <span class="hljs-regexp">//</span> <span class="hljs-string">&quot;&quot;</span>\\uD834<span class="hljs-string">&quot;&quot;</span><br>JSON.stringify(<span class="hljs-string">&#x27;\uDF06\uD834&#x27;</span>) <span class="hljs-regexp">//</span> <span class="hljs-string">&quot;&quot;</span>\\udf06\\ud834<span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3-例子二：点击按钮延时三秒输出结果。"><a href="#3-例子二：点击按钮延时三秒输出结果。" class="headerlink" title="3.例子二：点击按钮延时三秒输出结果。"></a>3.例子二：点击按钮延时三秒输出结果。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; fromEvent &#125; = rxjs;<br><span class="hljs-keyword">const</span> &#123; take, delay &#125; = rxjs.<span class="hljs-property">operators</span>;<br><br><span class="hljs-keyword">let</span> btnDom = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;.btn&quot;</span>);<br><span class="hljs-title function_">fromEvent</span>(btnDom, <span class="hljs-string">&#x27;click&#x27;</span>).<span class="hljs-title function_">pipe</span>(<br>    <span class="hljs-title function_">delay</span>(<span class="hljs-number">3000</span>),<br>    <span class="hljs-title function_">take</span>(<span class="hljs-number">3</span>)<br>).<span class="hljs-title function_">subscribe</span>(<br>    <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;点击按钮后延时三秒输出&quot;</span>);<br>    &#125;<br>)<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    其中fromEvent(btnDom, &#x27;click&#x27;) 为 Observable；</span><br><span class="hljs-comment">    delay(3000), take(3) 为 Operators；</span><br><span class="hljs-comment">    () =&gt; &#123;</span><br><span class="hljs-comment">        console.log(&quot;点击按钮后延时三秒输出&quot;);</span><br><span class="hljs-comment">    &#125; 为 Observer</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="部分内容来自RxJS-官方文档"><a href="#部分内容来自RxJS-官方文档" class="headerlink" title="部分内容来自RxJS 官方文档"></a>部分内容来自<a target="_blank" rel="noopener" href="https://rxjs.dev/">RxJS 官方文档</a></h4>
+<h4 id="示例与内容均来自阮一峰-ES6-教程"><a href="#示例与内容均来自阮一峰-ES6-教程" class="headerlink" title="示例与内容均来自阮一峰 ES6 教程"></a>示例与内容均来自<a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/es6-3rd/docs-string.md">阮一峰 ES6 教程</a></h4>
                 
               </div>
             
@@ -383,7 +378,7 @@
       
         <a href="/tags/JavaScript/">#JavaScript</a>
       
-        <a href="/tags/RxJS/">#RxJS</a>
+        <a href="/tags/ES6/">#ES6</a>
       
     </div>
   
@@ -395,8 +390,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>初识RxJS与demo实践</div>
-      <div>http://example.com/article/222d0cce.html</div>
+      <div>ES6-字符串的扩展（上）</div>
+      <div>http://example.com/article/888cebaf.html</div>
     </div>
     <div class="license-meta">
       
@@ -408,7 +403,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月15日</div>
+          <div>2022年7月18日</div>
         </div>
       
       
@@ -438,9 +433,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/ae9359db.html" title="ES6-其他的解构以及解构赋值的用途">
+                      <a href="/article/88443906.html" title="ES6-字符串的扩展（下）">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ES6-其他的解构以及解构赋值的用途</span>
+                        <span class="hidden-mobile">ES6-字符串的扩展（下）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -448,8 +443,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/51fe8215.html" title="ES6-解构赋值之对象">
-                        <span class="hidden-mobile">ES6-解构赋值之对象</span>
+                      <a href="/article/7e908282.html" title="20220717-孙文西路文化旅游步行街">
+                        <span class="hidden-mobile">20220717-孙文西路文化旅游步行街</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
