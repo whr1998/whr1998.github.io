@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/8.jpg">
 <meta property="article:published_time" content="2022-07-18T03:27:53.000Z">
-<meta property="article:modified_time" content="2022-07-18T07:01:04.471Z">
+<meta property="article:modified_time" content="2022-07-18T10:07:49.045Z">
 <meta property="article:author" content="小激动">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="ES6">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          2.8k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          1 分钟
+          24 分钟
         
       </span>
     
@@ -310,6 +310,44 @@
                 
                 <img src="/article/88443906/banner.jpg" srcset="/img/loading.gif" lazyload class="" title="image">
 
+<h2 id="一、模板字符串"><a href="#一、模板字符串" class="headerlink" title="一、模板字符串"></a>一、模板字符串</h2><p>以前输出模板通常是采用字符串拼接</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-string">&quot;hello world&quot;</span> + <span class="hljs-keyword">name</span><br></code></pre></td></tr></table></figure>
+
+<p>引入模板字符串后，采用反引号做标识，使用${}包裹变量。</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-string">`hello world <span class="hljs-subst">$&#123; name &#125;</span>`</span><br></code></pre></td></tr></table></figure>
+
+<p>${}大括号内部可以放入任意的 JavaScript 表达式，可以进行运算以及引用对象属性，可以调用函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// JavaScript 表达式</span><br><span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">let</span> y = <span class="hljs-number">2</span>;<br><br><span class="hljs-string">`<span class="hljs-subst">$&#123;x&#125;</span> + <span class="hljs-subst">$&#123;y * <span class="hljs-number">2</span>&#125;</span> = <span class="hljs-subst">$&#123;x + y * <span class="hljs-number">2</span>&#125;</span>`</span><br><span class="hljs-comment">// &quot;1 + 4 = 5&quot;</span><br><br><span class="hljs-comment">// 引用对象属性</span><br><span class="hljs-keyword">let</span> obj = &#123;<span class="hljs-attr">x</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">2</span>&#125;;<br><span class="hljs-string">`<span class="hljs-subst">$&#123;obj.x + obj.y&#125;</span>`</span><br><span class="hljs-comment">// &quot;3&quot;</span><br><br><span class="hljs-comment">// 调用函数</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello World&quot;</span>;<br>&#125;<br><span class="hljs-string">`foo <span class="hljs-subst">$&#123;fn()&#125;</span> bar`</span><br><span class="hljs-comment">// foo Hello World bar</span><br></code></pre></td></tr></table></figure>
+
+<p>如果大括号中的值不是字符串，将按照一般的规则转为字符串。比如，大括号中是一个对象，将默认调用对象的 toString 方法。</p>
+<h2 id="二、实例：模板编译"><a href="#二、实例：模板编译" class="headerlink" title="二、实例：模板编译"></a>二、实例：模板编译</h2><figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bnf">let template = `<br><span class="hljs-attribute">&lt;ul&gt;</span><br>  <span class="hljs-attribute">&lt;% for(let i=0; i &lt; data.supplies.length; i++) &#123; %&gt;</span><br>    <span class="hljs-attribute">&lt;li&gt;</span><span class="hljs-attribute">&lt;%= data.supplies[i] %&gt;</span><span class="hljs-attribute">&lt;/li&gt;</span><br>  <span class="hljs-attribute">&lt;% &#125; %&gt;</span><br><span class="hljs-attribute">&lt;/ul&gt;</span><br>`;<br></code></pre></td></tr></table></figure>
+
+<p>使用正则转换成表达式字符串</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs arcade">let evalExpr = <span class="hljs-regexp">/&lt;%=(.+?)%&gt;/g</span>;<br>let expr = <span class="hljs-regexp">/&lt;%([\s\S]+?)%&gt;/g</span>;<br>template = template<br>  .<span class="hljs-built_in">replace</span>(evalExpr, <span class="hljs-string">&#x27;`); \n  echo( $1 ); \n  echo(`&#x27;</span>)<br>  .<span class="hljs-built_in">replace</span>(expr, <span class="hljs-string">&#x27;`); \n $1 \n  echo(`&#x27;</span>);<br>template = <span class="hljs-string">&#x27;echo(`&#x27;</span> + template + <span class="hljs-string">&#x27;`);&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>然后，将 template 封装在一个函数里面返回，就可以了。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lua">let script =<br>`(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">parse</span><span class="hljs-params">(data)</span></span>&#123;<br>  let <span class="hljs-built_in">output</span> = <span class="hljs-string">&quot;&quot;</span>;<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">echo</span><span class="hljs-params">(html)</span></span>&#123;<br>    <span class="hljs-built_in">output</span> += html;<br>  &#125;<br>  $&#123; template &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">output</span>;<br>&#125;)`;<br><span class="hljs-keyword">return</span> script;<br></code></pre></td></tr></table></figure>
+
+<p>完整 compile 函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">function</span> compile(template)&#123;<br>  const evalExpr = /&lt;%=(.+?)%&gt;/g;<br>  const <span class="hljs-built_in">expr</span> = /&lt;%([\s\S]+?)%&gt;/g;<br>  template = template<br>    .replace(evalExpr, <span class="hljs-string">&#x27;`); \n  echo( $1 ); \n  echo(`&#x27;</span>)<br>    .replace(<span class="hljs-built_in">expr</span>, <span class="hljs-string">&#x27;`); \n $1 \n  echo(`&#x27;</span>);<br>  template = <span class="hljs-string">&#x27;echo(`&#x27;</span> + template + <span class="hljs-string">&#x27;`);&#x27;</span>;<br>  <span class="hljs-built_in">let</span> script =<br>  `(<span class="hljs-keyword">function</span> parse(data)&#123;<br>    <span class="hljs-built_in">let</span> output = <span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-keyword">function</span> <span class="hljs-built_in">echo</span>(html)&#123;<br>      output += html;<br>    &#125;<br>    <span class="hljs-variable">$&#123; template &#125;</span><br>    <span class="hljs-built_in">return</span> output;<br>  &#125;)`;<br>  <span class="hljs-built_in">return</span> script;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="三、标签模板"><a href="#三、标签模板" class="headerlink" title="三、标签模板"></a>三、标签模板</h2><p>紧跟在一个函数名后面，该函数将被调用来处理这个模板字符串。这被称为“标签模板”功能（tagged template）。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">alert`hello`<br><span class="hljs-comment">// 等同于</span><br><span class="hljs-function"><span class="hljs-title">alert</span><span class="hljs-params">([<span class="hljs-string">&#x27;hello&#x27;</span>])</span></span><br></code></pre></td></tr></table></figure>
+
+<p>标签模板其实不是模板，而是函数调用的一种特殊形式。“标签”指的就是函数，紧跟在后面的模板字符串就是它的参数。</p>
+<p>但是，如果模板字符里面有变量，就不是简单的调用了，而是会将模板字符串先处理成多个参数，再调用函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-number">5</span>;<br><span class="hljs-keyword">let</span> b = <span class="hljs-number">10</span>;<br>tag<span class="hljs-string">`Hello <span class="hljs-subst">$&#123; a + b &#125;</span> world <span class="hljs-subst">$&#123; a * b &#125;</span>`</span>;<br><span class="hljs-comment">// 等同于</span><br><span class="hljs-title function_">tag</span>([<span class="hljs-string">&#x27;Hello &#x27;</span>, <span class="hljs-string">&#x27; world &#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>], <span class="hljs-number">15</span>, <span class="hljs-number">50</span>);<br></code></pre></td></tr></table></figure>
+
+<p>“标签模板”的一个重要应用，就是过滤 HTML 字符串，防止用户输入恶意内容。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> message =<br>  <span class="hljs-title class_">SaferHTML</span><span class="hljs-string">`&lt;p&gt;<span class="hljs-subst">$&#123;sender&#125;</span> has sent you a message.&lt;/p&gt;`</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">SaferHTML</span>(<span class="hljs-params">templateData</span>) &#123;<br>  <span class="hljs-keyword">let</span> s = templateData[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-variable language_">arguments</span>.<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">let</span> arg = <span class="hljs-title class_">String</span>(<span class="hljs-variable language_">arguments</span>[i]);<br>    <span class="hljs-comment">// Escape special characters in the substitution.</span><br>    s += arg.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&amp;/g</span>, <span class="hljs-string">&quot;&amp;amp;&quot;</span>)<br>            .<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&lt;/g</span>, <span class="hljs-string">&quot;&amp;lt;&quot;</span>)<br>            .<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&gt;/g</span>, <span class="hljs-string">&quot;&amp;gt;&quot;</span>);<br>    <span class="hljs-comment">// Don&#x27;t escape special characters in the template.</span><br>    s += templateData[i];<br>  &#125;<br>  <span class="hljs-keyword">return</span> s;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>标签模板的另一个应用，就是多语言转换（国际化处理）。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">i18n`Welcome to <span class="hljs-variable">$&#123;siteName&#125;</span>, you are visitor number <span class="hljs-variable">$&#123;visitorNumber&#125;</span>!`<br><span class="hljs-regexp">//</span> <span class="hljs-string">&quot;欢迎访问xxx，您是第xxxx位访问者！&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="四、模板字符串的限制"><a href="#四、模板字符串的限制" class="headerlink" title="四、模板字符串的限制"></a>四、模板字符串的限制</h2><p>前面提到标签模板里面，可以内嵌其他语言。但是，模板字符串默认会将字符串转义，导致无法嵌入其他语言。</p>
+<p>为了解决这个问题，ES2018 放松了对标签模板里面的字符串转义的限制。如果遇到不合法的字符串转义，就返回 undefined，而不是报错，并且从 raw 属性上面可以得到原始字符串。</p>
+<p>注意，这种对字符串转义的放松，只在标签模板解析字符串时生效，不是标签模板的场合，依然会报错。</p>
+<h4 id="示例与内容均来自阮一峰-ES6-教程"><a href="#示例与内容均来自阮一峰-ES6-教程" class="headerlink" title="示例与内容均来自阮一峰 ES6 教程"></a>示例与内容均来自<a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/es6-3rd/docs-string.md">阮一峰 ES6 教程</a></h4>
                 
               </div>
             
