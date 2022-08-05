@@ -1,733 +1,1111 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme="auto">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png" />
-    <link rel="icon" href="/img/fluid.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+<html lang="zh-CN" data-default-color-scheme=auto>
 
-    <meta name="theme-color" content="#2f4154" />
-    <meta name="author" content="小激动" />
-    <meta name="keywords" content="" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="小激动的Blog" />
-    <meta property="og:url" content="http://example.com/index.html" />
-    <meta property="og:site_name" content="小激动的Blog" />
-    <meta property="og:locale" content="zh_CN" />
-    <meta property="article:author" content="小激动" />
-    <meta name="twitter:card" content="summary_large_image" />
 
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小激动">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="小激动的Blog">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="小激动的Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="小激动">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>小激动的Blog</title>
 
-    <title>小激动的Blog</title>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-    <!-- 主题依赖的图标库，不要自行修改 -->
-    <!-- Do not modify the link that theme dependent icons -->
 
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css" />
 
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css" />
 
-    <link rel="stylesheet" href="/css/main.css" />
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-    <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
     <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
-    <script id="fluid-configs">
-      var Fluid = window.Fluid || {};
-      Fluid.ctx = Object.assign({}, Fluid.ctx);
-      var CONFIG = {
-        hostname: 'example.com',
-        root: '/',
-        version: '1.9.2',
-        typing: { enable: true, typeSpeed: 100, cursorChar: '_', loop: true, scope: [] },
-        anchorjs: { enable: true, element: 'h1,h2,h3,h4,h5,h6', placement: 'left', visible: 'hover', icon: '§' },
-        progressbar: { enable: true, height_px: 3, color: '#29d', options: { showSpinner: false, trickleSpeed: 100 } },
-        code_language: { enable: true, default: 'TEXT' },
-        copy_btn: true,
-        image_caption: { enable: true },
-        image_zoom: { enable: true, img_url_replace: ['', ''] },
-        toc: { enable: true, placement: 'right', headingSelector: 'h1,h2,h3,h4,h5,h6', collapseDepth: 0 },
-        lazyload: { enable: true, loading_img: '/img/loading.gif', onlypost: false, offset_factor: 2 },
-        web_analytics: {
-          enable: true,
-          follow_dnt: true,
-          baidu: null,
-          google: null,
-          gtag: null,
-          tencent: { sid: null, cid: null },
-          woyaola: null,
-          cnzz: null,
-          leancloud: {
-            app_id: 'IqYHUF4WfQUObRsq0IeiOxqx-gzGzoHsz',
-            app_key: '2wqc5ir6wzlkr0yB5J1TWDVt',
-            server_url: null,
-            path: 'window.location.pathname',
-            ignore_local: false,
-          },
-        },
-        search_path: '/local-search.xml',
-      };
 
-      if (CONFIG.web_analytics.follow_dnt) {
-        var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-        Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-      }
-    </script>
-    <script src="/js/utils.js"></script>
-    <script src="/js/color-schema.js"></script>
 
-    <meta name="generator" content="Hexo 6.2.0" />
-  </head>
 
-  <body>
-    <header>
-      <div class="header-inner" style="height: 100vh">
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-          <div class="container">
-            <a class="navbar-brand" href="/">
-              <strong>小激动的Blog</strong>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"IqYHUF4WfQUObRsq0IeiOxqx-gzGzoHsz","app_key":"2wqc5ir6wzlkr0yB5J1TWDVt","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小激动的Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 
-            <button
-              id="navbar-toggler-btn"
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <div class="animated-icon"><span></span><span></span><span></span></div>
-            </button>
+  
 
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto text-center">
-                <li class="nav-item">
-                  <a class="nav-link" href="/">
-                    <i class="iconfont icon-home-fill"></i>
-                    首页
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="/archives/">
-                    <i class="iconfont icon-archive-fill"></i>
-                    归档
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="/categories/">
-                    <i class="iconfont icon-category-fill"></i>
-                    分类
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="/tags/">
-                    <i class="iconfont icon-tags-fill"></i>
-                    标签
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="/about/">
-                    <i class="iconfont icon-user-fill"></i>
-                    关于
-                  </a>
-                </li>
-
-                <li class="nav-item" id="search-btn">
-                  <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-                    &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-                  </a>
-                </li>
-
-                <li class="nav-item" id="color-toggle-btn">
-                  <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle"
-                    >&nbsp;<i class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-        <div
-          id="banner"
-          class="banner"
-          parallax="true"
-          style="background: url('/img/banner.jpg') no-repeat center center; background-size: cover"
-        >
-          <div class="full-bg-img">
-            <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-              <div class="banner-text text-center fade-in-up">
-                <div class="h2">
-                  <span id="subtitle" data-typed-text="人的梦想，永远不会结束！"></span>
-                </div>
-              </div>
-
-              <div class="scroll-down-bar">
-                <i class="iconfont icon-arrowdown"></i>
-              </div>
-            </div>
-          </div>
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner2.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="人的梦想，永远不会结束！"></span>
+          
         </div>
-      </div>
-    </header>
 
-    <main>
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
       <div class="container nopadding-x-md">
-        <div id="board" style="margin-top: 0">
+        <div id="board"
+          style="margin-top: 0">
+          
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/6f61a62.html" target="_self">
-                      <img src="/img/12.jpg" srcset="/img/loading.gif" lazyload alt="TS-类" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/6f61a62.html" target="_self"> TS-类 </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/6f61a62.html" target="_self">
-                      <div>类、类的继承、修饰符、存取器、静态属性、抽象类</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-28 15:25" pubdate> 2022-07-28 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/TypeScript/">#TypeScript</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/54e7d36b.html" target="_self">
-                      <img src="/img/11.jpg" srcset="/img/loading.gif" lazyload alt="TS-接口" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/54e7d36b.html" target="_self"> TS-接口 </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/54e7d36b.html" target="_self">
-                      <div>接口属性，接口可定义的类型，接口继承。</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-27 16:48" pubdate> 2022-07-27 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/TypeScript/">#TypeScript</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/53dc5db4.html" target="_self">
-                      <img src="/img/10.jpg" srcset="/img/loading.gif" lazyload alt="TS-简介、搭建以及基础类型" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/53dc5db4.html" target="_self"> TS-简介、搭建以及基础类型 </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/53dc5db4.html" target="_self">
-                      <div>简介、环境安装与搭建、基础类型。</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-22 09:37" pubdate> 2022-07-22 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/TypeScript/">#TypeScript</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/4460526d.html" target="_self">
-                      <img src="/img/9.jpg" srcset="/img/loading.gif" lazyload alt="ES6-字符串的新增方法" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/4460526d.html" target="_self"> ES6-字符串的新增方法 </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/4460526d.html" target="_self">
-                      <div>
-                        一、String.fromCodePoint()ES5 提供 String.fromCharCode()方法，用于从 Unicode
-                        码点返回对应字符，但是这个方法不能识别码点大于 0xFFFF 的字符。 ES6 提供了 String.fromCodePoint()方法，可以识别大于
-                        0xFFFF 的字符，弥补了 String.fromCharCode()方法的不足。在作用上，正好与下面的 c
-                      </div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-19 09:11" pubdate> 2022-07-19 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/ES6/">#ES6</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/88443906.html" target="_self">
-                      <img src="/img/8.jpg" srcset="/img/loading.gif" lazyload alt="ES6-字符串的扩展（下）" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/88443906.html" target="_self"> ES6-字符串的扩展（下） </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/88443906.html" target="_self">
-                      <div>模板字符串、模板编译、标签模板以及模板字符串的限制</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-18 11:27" pubdate> 2022-07-18 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/ES6/">#ES6</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/888cebaf.html" target="_self">
-                      <img src="/img/7.jpg" srcset="/img/loading.gif" lazyload alt="ES6-字符串的扩展（上）" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/888cebaf.html" target="_self"> ES6-字符串的扩展（上） </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/888cebaf.html" target="_self">
-                      <div>ES6加强对Unicode编码的支持，为字符串提供Iterator接口，以及优化了JSON.stringify()。</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-18 10:53" pubdate> 2022-07-18 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/ES6/">#ES6</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/7e908282.html" target="_self">
-                      <img src="/img/banner.jpg" srcset="/img/loading.gif" lazyload alt="20220717-孙文西路文化旅游步行街" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/7e908282.html" target="_self"> 20220717-孙文西路文化旅游步行街 </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/7e908282.html" target="_self">
-                      <div>记录在孙文西路文化旅游步行街（民国风Style）闲逛的一天。</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-18 09:53" pubdate> 2022-07-18 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Relax/" class="category-chain-item">Relax</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/relax/">#relax</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/ae9359db.html" target="_self">
-                      <img src="/img/6.jpg" srcset="/img/loading.gif" lazyload alt="ES6-其他的解构以及解构赋值的用途" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/ae9359db.html" target="_self"> ES6-其他的解构以及解构赋值的用途 </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/ae9359db.html" target="_self">
-                      <div>数值与布尔值、函数参数的解构赋值,圆括号问题以及用途。</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-16 14:26" pubdate> 2022-07-16 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/ES6/">#ES6</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/222d0cce.html" target="_self">
-                      <img src="/img/1.jpg" srcset="/img/loading.gif" lazyload alt="初识RxJS与demo实践" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/222d0cce.html" target="_self"> 初识RxJS与demo实践 </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/222d0cce.html" target="_self">
-                      <div>RxJS是用于处理异步和事件程序的JS库，可以将RxJS看作事件的lodash。</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-15 15:19" pubdate> 2022-07-15 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/RxJS/">#RxJS</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <div class="row mx-auto index-card">
-                  <div class="col-12 col-md-4 m-auto index-img">
-                    <a href="/article/51fe8215.html" target="_self">
-                      <img src="/img/5.jpg" srcset="/img/loading.gif" lazyload alt="ES6-解构赋值之对象" />
-                    </a>
-                  </div>
-
-                  <article class="col-12 col-md-8 mx-auto index-info">
-                    <h1 class="index-header">
-                      <a href="/article/51fe8215.html" target="_self"> ES6-解构赋值之对象 </a>
-                    </h1>
-
-                    <a class="index-excerpt" href="/article/51fe8215.html" target="_self">
-                      <div>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</div>
-                    </a>
-
-                    <div class="index-btm post-metas">
-                      <div class="post-meta mr-3">
-                        <i class="iconfont icon-date"></i>
-                        <time datetime="2022-07-12 09:30" pubdate> 2022-07-12 </time>
-                      </div>
-
-                      <div class="post-meta mr-3 d-flex align-items-center">
-                        <i class="iconfont icon-category"></i>
-
-                        <span class="category-chains">
-                          <span class="category-chain">
-                            <a href="/categories/Study/" class="category-chain-item">Study</a>
-                          </span>
-                        </span>
-                      </div>
-
-                      <div class="post-meta">
-                        <i class="iconfont icon-tags"></i>
-
-                        <a href="/tags/JavaScript/">#JavaScript</a>
-
-                        <a href="/tags/ES6/">#ES6</a>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-
-                <nav aria-label="navigation">
-                  <span class="pagination" id="pagination">
-                    <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a
-                    ><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
-                  </span>
-                </nav>
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/6f61a62.html" target="_self">
+          <img src="/img/12.jpg" srcset="/img/loading.gif" lazyload alt="TS-类">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/6f61a62.html" target="_self">
+          TS-类
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/6f61a62.html" target="_self">
+        <div>
+          类、类的继承、修饰符、存取器、静态属性、抽象类
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-28 15:25" pubdate>
+              2022-07-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/TypeScript/">#TypeScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/54e7d36b.html" target="_self">
+          <img src="/img/11.jpg" srcset="/img/loading.gif" lazyload alt="TS-接口">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/54e7d36b.html" target="_self">
+          TS-接口
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/54e7d36b.html" target="_self">
+        <div>
+          接口属性，接口可定义的类型，接口继承。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-27 16:48" pubdate>
+              2022-07-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/TypeScript/">#TypeScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/53dc5db4.html" target="_self">
+          <img src="/img/10.jpg" srcset="/img/loading.gif" lazyload alt="TS-简介、搭建以及基础类型">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/53dc5db4.html" target="_self">
+          TS-简介、搭建以及基础类型
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/53dc5db4.html" target="_self">
+        <div>
+          简介、环境安装与搭建、基础类型。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-22 09:37" pubdate>
+              2022-07-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/TypeScript/">#TypeScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/4460526d.html" target="_self">
+          <img src="/img/9.jpg" srcset="/img/loading.gif" lazyload alt="ES6-字符串的新增方法">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/4460526d.html" target="_self">
+          ES6-字符串的新增方法
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/4460526d.html" target="_self">
+        <div>
+          一、String.fromCodePoint()ES5 提供 String.fromCharCode()方法，用于从 Unicode 码点返回对应字符，但是这个方法不能识别码点大于 0xFFFF 的字符。 ES6 提供了 String.fromCodePoint()方法，可以识别大于 0xFFFF 的字符，弥补了 String.fromCharCode()方法的不足。在作用上，正好与下面的 c
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-19 09:11" pubdate>
+              2022-07-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/ES6/">#ES6</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/88443906.html" target="_self">
+          <img src="/img/8.jpg" srcset="/img/loading.gif" lazyload alt="ES6-字符串的扩展（下）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/88443906.html" target="_self">
+          ES6-字符串的扩展（下）
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/88443906.html" target="_self">
+        <div>
+          模板字符串、模板编译、标签模板以及模板字符串的限制
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-18 11:27" pubdate>
+              2022-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/ES6/">#ES6</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/888cebaf.html" target="_self">
+          <img src="/img/7.jpg" srcset="/img/loading.gif" lazyload alt="ES6-字符串的扩展（上）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/888cebaf.html" target="_self">
+          ES6-字符串的扩展（上）
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/888cebaf.html" target="_self">
+        <div>
+          ES6加强对Unicode编码的支持，为字符串提供Iterator接口，以及优化了JSON.stringify()。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-18 10:53" pubdate>
+              2022-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/ES6/">#ES6</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/7e908282.html" target="_self">
+          <img src="/img/banner.jpg" srcset="/img/loading.gif" lazyload alt="20220717-孙文西路文化旅游步行街">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/7e908282.html" target="_self">
+          20220717-孙文西路文化旅游步行街
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/7e908282.html" target="_self">
+        <div>
+          记录在孙文西路文化旅游步行街（民国风Style）闲逛的一天。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-18 09:53" pubdate>
+              2022-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Relax/" class="category-chain-item">Relax</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/relax/">#relax</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/ae9359db.html" target="_self">
+          <img src="/img/6.jpg" srcset="/img/loading.gif" lazyload alt="ES6-其他的解构以及解构赋值的用途">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/ae9359db.html" target="_self">
+          ES6-其他的解构以及解构赋值的用途
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/ae9359db.html" target="_self">
+        <div>
+          数值与布尔值、函数参数的解构赋值,圆括号问题以及用途。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-16 14:26" pubdate>
+              2022-07-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/ES6/">#ES6</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/222d0cce.html" target="_self">
+          <img src="/img/1.jpg" srcset="/img/loading.gif" lazyload alt="初识RxJS与demo实践">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/222d0cce.html" target="_self">
+          初识RxJS与demo实践
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/222d0cce.html" target="_self">
+        <div>
+          RxJS是用于处理异步和事件程序的JS库，可以将RxJS看作事件的lodash。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-15 15:19" pubdate>
+              2022-07-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/RxJS/">#RxJS</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/article/51fe8215.html" target="_self">
+          <img src="/img/5.jpg" srcset="/img/loading.gif" lazyload alt="ES6-解构赋值之对象">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/article/51fe8215.html" target="_self">
+          ES6-解构赋值之对象
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/article/51fe8215.html" target="_self">
+        <div>
+          ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-12 09:30" pubdate>
+              2022-07-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+              <a href="/tags/ES6/">#ES6</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
               </div>
             </div>
           </div>
         </div>
       </div>
+    
 
+    
       <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
+    
 
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header text-center">
-              <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-              <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body mx-3">
-              <div class="md-form mb-5">
-                <input type="text" id="local-search-input" class="form-control validate" />
-                <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-              </div>
-              <div class="list-group" id="local-search-result"></div>
-            </div>
-          </div>
-        </div>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-content">
-          <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i>
-          <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
-
-        <div class="statistics">
-          <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量
-            <span id="busuanzi_value_site_pv"></span>
-            次
-          </span>
-
-          <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数
-            <span id="busuanzi_value_site_uv"></span>
-            人
-          </span>
-        </div>
+        <div class="list-group" id="local-search-result"></div>
       </div>
-    </footer>
+    </div>
+  </div>
+</div>
 
-    <!-- Scripts -->
+    
 
-    <script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script>
-    <link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+    
+  </main>
 
-    <script>
-      NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
-      NProgress.start();
-      window.addEventListener('load', function () {
-        NProgress.done();
-      });
-    </script>
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
-    <script src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script>
-    <script src="/js/events.js"></script>
-    <script src="/js/plugins.js"></script>
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
 
-    <script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script>
-    <script>
-      (function (window, document) {
-        var typing = Fluid.plugins.typing;
-        var subtitle = document.getElementById('subtitle');
-        if (!subtitle || !typing) {
-          return;
-        }
-        var text = subtitle.getAttribute('data-typed-text');
+  
+  
+  
+</div>
 
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
         typing(text);
-      })(window, document);
-    </script>
+      
+    })(window, document);
+  </script>
 
-    <script src="/js/img-lazyload.js"></script>
 
-    <script defer src="/js/leancloud.js"></script>
 
-    <script src="/js/local-search.js"></script>
 
-    <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
-    <!-- 主题的启动项，将它保持在最底部 -->
-    <!-- the boot of the theme, keep it at the bottom -->
-    <script src="/js/boot.js"></script>
 
-    <noscript>
-      <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-    </noscript>
-  </body>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>
